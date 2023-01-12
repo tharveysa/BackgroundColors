@@ -18,6 +18,7 @@ pageextension 50170 "ASI Customer List" extends "Customer List"
 
     trigger OnAfterGetRecord()
     begin
-        CurrPage.ChangeColors.setColorsOnPage(Rec.FieldCaption("No."), 'red', '01454545');
+        // Set any row with location code that = GREEN to red background
+        CurrPage.ChangeColors.setColorsOnPage(Rec.FieldCaption("Location Code"), 'red', 'GREEN');
     end;
 }

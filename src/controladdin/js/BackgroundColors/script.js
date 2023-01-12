@@ -18,4 +18,17 @@ function changeBackgroundColors(headerName, color, variable) {
             // row.setAttribute("style", "background-color: red !important;");
         }
     }
+
+    var repeater = window.parent.document.querySelector("[class^='ms-nav-scrollable']");
+    repeater.addEventListener('scroll', function() {
+        var rows = window.parent.document.querySelectorAll("[class='thm-cont-g0-bgcolor']");
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].removeAttribute("style");
+            if (rows[i].querySelector('[aria-labelledby^=\'' + headerName + '\']').innerHTML == variable) {
+                rows[i].setAttribute("style", "background-color: red !important;");
+                // var row = window.parent.document.querySelector("[rowkey='"+ rows[i].getAttribute("rowkey") + "']"); // Isolate each row into var = same behaviour
+                // row.setAttribute("style", "background-color: red !important;");
+            }
+        }
+    });
 }
